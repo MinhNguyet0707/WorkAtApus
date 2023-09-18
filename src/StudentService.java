@@ -23,11 +23,12 @@ public class StudentService {
         }
     }
 
-    public void editStudent(int maSinhVien, String tenMoi, int tuoiMoi) {
+    public void editStudent(int maSinhVien, String tenMoi, int tuoiMoi, boolean status) {
         for (Student sv : studentList) {
             if (getId(maSinhVien, sv)) {
                 sv.setName(tenMoi);
                 sv.setAge(tuoiMoi);
+                sv.setActive(status);
                 break;
             }
         }
@@ -76,6 +77,26 @@ public class StudentService {
         return student.getId() == maSinhVien;
 
     }
+    public String removeStudentsByNameAndStatus(String name, boolean status) {
+        boolean removed = false;
+        Iterator<Student> iterator = studentList.iterator();
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
+            if (student.getName().startsWith(name) && !student.isActive()) {
+                iterator.remove();
+                removed = true;
+            }
+        }
+        if (removed) {
+            System.out.println("Xóa thành công");
+            return "Xóa thành công";
+        } else {
+            System.out.println("Không tìm thấy sinh viên  để xóa");
 
+            return "Xóa thành công";
+        }
+    }
 
 }
+
+

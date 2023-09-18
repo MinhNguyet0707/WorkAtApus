@@ -2,6 +2,8 @@ public class Student {
     private int id;
     private String name;
     private int age;
+    private boolean active;
+
 
     public Student() {
     }
@@ -10,6 +12,13 @@ public class Student {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+
+    public Student(int id, String name, int age, boolean active) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.active = active;
     }
 
     public int getId() {
@@ -36,12 +45,21 @@ public class Student {
         this.age = age;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Override
     public String toString() {
-        return "SinhVien{" +
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", active=" + active +
                 '}';
     }
 }
