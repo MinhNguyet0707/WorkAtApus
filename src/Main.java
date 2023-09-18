@@ -29,7 +29,7 @@ public class Main {
                     System.out.print("Nhập tuổi sinh viên: ");
                     int tuoi = scanner.nextInt();
                     Student sv = new Student(ma, ten, tuoi);
-                    studentService.addSinhVien(sv);
+                    studentService.addStudent(sv);
                     break;
                 case 2:
                     System.out.print("Nhập mã sinh viên cần sửa: ");
